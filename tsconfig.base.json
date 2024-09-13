@@ -17,8 +17,7 @@
     "paths": {
       "@angular-monorepo/fashion-world/feature": [
         "libs/fashion-world/feature/src/index.ts"
-      ],
-      "@angular-monorepo/feature": ["libs/to-do/src/index.ts"]
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]
