@@ -15,9 +15,25 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@angular-monorepo/fashion-world/data-access": [
+        "libs/fashion-world/data-access/src/index.ts"
+      ],
       "@angular-monorepo/fashion-world/feature": [
         "libs/fashion-world/feature/src/index.ts"
-      ]
+      ],
+      "@angular-monorepo/fashion-world/ui": [
+        "libs/fashion-world/ui/src/index.ts"
+      ],
+      "@angular-monorepo/shared/data-access": [
+        "libs/shared/data-access/src/index.ts"
+      ],
+      "@angular-monorepo/shared/ui": ["libs/shared/ui/src/index.ts"],
+      "@angular-monorepo/shared/utils": ["libs/shared/utils/src/index.ts"],
+      "@angular-monorepo/to-do/data-access": [
+        "libs/to-do/data-access/src/index.ts"
+      ],
+      "@angular-monorepo/to-do/feature": ["libs/to-do/feature/src/index.ts"],
+      "@angular-monorepo/to-do/ui": ["libs/to-do/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
