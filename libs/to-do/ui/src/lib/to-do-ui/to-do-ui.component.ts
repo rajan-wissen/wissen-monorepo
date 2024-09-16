@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ITodo } from 'libs/to-do/feature/src/lib/add-todo/add-todo.component';
 
 @Component({
   selector: 'lib-to-do-ui',
@@ -8,4 +9,6 @@ import { CommonModule } from '@angular/common';
   templateUrl: './to-do-ui.component.html',
   styleUrl: './to-do-ui.component.css',
 })
-export class ToDoUiComponent {}
+export class ToDoUiComponent {
+  @Input() todoList:ITodo[] =  [];
+}

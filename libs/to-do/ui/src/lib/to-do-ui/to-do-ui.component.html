@@ -1,7 +1,22 @@
 <!-- <h2></h2> -->
-<ul class="">
-  <li>test1</li>
-  <li>test1</li>
-  <li>test1</li>
-  <li>test1</li>
+<ul class="" *ngFor="let todo of todoList">
+  <li>{{ todo.title }}</li>
+  <li>{{ todo.description }}</li>
 </ul>
+
+<ng-container *ngFor="let todo of todoList">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-body">
+          <p class="card-text">
+            {{ todo.title }}
+          </p>
+          <p class="card-text">
+            {{ todo.description }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
