@@ -1,41 +1,32 @@
 {
-  "name": "to-do",
+  "name": "shell",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "prefix": "app",
-  "sourceRoot": "apps/to-do/src",
+  "sourceRoot": "apps/shell/src",
   "tags": [],
   "targets": {
     "build": {
       "executor": "@nx/angular:webpack-browser",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/apps/to-do",
-        "index": "apps/to-do/src/index.html",
-        "main": "apps/to-do/src/main.ts",
-        "polyfills": [
-          "zone.js",
-          "@angular/localize/init"
-        ],
-        "tsConfig": "apps/to-do/tsconfig.app.json",
+        "outputPath": "dist/apps/shell",
+        "index": "apps/shell/src/index.html",
+        "main": "apps/shell/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/shell/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
           {
             "glob": "**/*",
-            "input": "apps/to-do/public",
-            "output": "."
+            "input": "apps/shell/public"
           }
         ],
-        "styles": [
-          "apps/to-do/src/styles.scss"
-        ],
+        "styles": ["apps/shell/src/styles.scss"],
         "scripts": [],
         "customWebpackConfig": {
-          "path": "apps/to-do/webpack.config.js"
-        },
-        "commonChunk": false
+          "path": "apps/shell/webpack.config.ts"
+        }
       },
       "configurations": {
         "production": {
@@ -53,7 +44,7 @@
           ],
           "outputHashing": "all",
           "customWebpackConfig": {
-            "path": "apps/to-do/webpack.prod.config.js"
+            "path": "apps/shell/webpack.prod.config.ts"
           }
         },
         "development": {
@@ -68,26 +59,25 @@
       "defaultConfiguration": "production"
     },
     "serve": {
-      "executor": "@nx/angular:dev-server",
+      "executor": "@nx/angular:module-federation-dev-server",
+      "options": {
+        "port": 4200,
+        "publicHost": "http://localhost:4200"
+      },
       "configurations": {
         "production": {
-          "buildTarget": "to-do:build:production"
+          "buildTarget": "shell:build:production"
         },
         "development": {
-          "buildTarget": "to-do:build:development"
+          "buildTarget": "shell:build:development"
         }
       },
-      "defaultConfiguration": "development",
-      "options": {
-        "port": 4201,
-        "publicHost": "http://localhost:4201"
-      }
+      "defaultConfiguration": "development"
     },
     "extract-i18n": {
-      "executor": "ngx-build-plus:extract-i18n",
+      "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "buildTarget": "to-do:build",
-        "extraWebpackConfig": "apps/to-do/webpack.config.js"
+        "buildTarget": "shell:build"
       }
     },
     "lint": {
@@ -95,18 +85,16 @@
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": [
-        "{workspaceRoot}/coverage/{projectRoot}"
-      ],
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/to-do/jest.config.ts"
+        "jestConfig": "apps/shell/jest.config.ts"
       }
     },
     "serve-static": {
       "executor": "@nx/web:file-server",
       "options": {
-        "buildTarget": "to-do:build",
-        "port": 4201,
+        "buildTarget": "shell:build",
+        "port": 4200,
         "spa": true
       }
     }
