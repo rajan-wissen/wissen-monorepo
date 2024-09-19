@@ -1,7 +1,19 @@
-<ul class="remote-menu">
+<!-- <ul class="remote-menu">
   <li><a routerLink="/">Home</a></li>
   <li><a routerLink="to-do">ToDo</a></li>
   <li><a routerLink="fashion-world">FashionWorld</a></li>
   <li><a routerLink="login">Login</a></li>
 </ul>
-<router-outlet></router-outlet>
+<router-outlet></router-outlet> -->
+
+<header class="header">
+  <lib-header></lib-header>
+</header>
+<main class="my-4">
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</main>
+<footer class="foooter">
+  <lib-footer></lib-footer>
+</footer>
