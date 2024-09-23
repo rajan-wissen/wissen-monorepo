@@ -1,3 +1,6 @@
 <h5 class="text-primary">Add Todo</h5>
 <lib-add-todo (addTodoEvent)="addTodoHandler($event)"></lib-add-todo>
-<lib-to-do-ui [todoList]="todoList"></lib-to-do-ui>
+<lib-to-do-ui
+  [todoList]="todoList"
+  (deleteTodoEvent)="deleteTodoHandler($event)"
+></lib-to-do-ui>

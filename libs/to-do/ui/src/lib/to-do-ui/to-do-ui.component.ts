@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ITodo } from 'libs/to-do/feature/src/lib/add-todo/add-todo.component';
 
@@ -11,4 +11,9 @@ import { ITodo } from 'libs/to-do/feature/src/lib/add-todo/add-todo.component';
 })
 export class ToDoUiComponent {
   @Input() todoList:ITodo[] =  [];
+  @Output() deleteTodoEvent = new EventEmitter<ITodo>();
+  
+    deleteTodo(todo: ITodo) {
+      this.deleteTodoEvent.emit(todo);
+    }
 }

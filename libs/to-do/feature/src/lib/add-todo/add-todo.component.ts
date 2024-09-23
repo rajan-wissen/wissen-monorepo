@@ -71,9 +71,11 @@ export class AddTodoComponent implements OnInit {
     console.log(this.todoForm.value);
     if (this.todoForm.valid) {
       const formData:any = this.todoForm.value;
-      console.log('Form Data:', formData);
       this.addTodoEvent.emit(formData);
-      // Handle the form submission logic here
+      // Reset the form
+      this.todoForm.reset();
+      // Optionally, you can clear the form values as well
+      // this.todoForm.patchValue({ title: '', description: '' });
     } else {
       // Optionally, you can mark all fields as touched to show validation messages
       this.todoForm.markAllAsTouched();
