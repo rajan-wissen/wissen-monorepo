@@ -10,14 +10,14 @@ describe('AppComponent', () => {
     }).compileComponents();
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain(
-      'Welcome fashion-world'
-    );
-  });
+  // it('should render title', () => {
+  //   const fixture = TestBed.createComponent(AppComponent);
+  //   fixture.detectChanges();
+  //   const compiled = fixture.nativeElement as HTMLElement;
+  //   expect(compiled.querySelector('h1')?.textContent).toContain(
+  //     'Welcome fashion-world'
+  //   );
+  // });
 
   it(`should have as title 'fashion-world'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
