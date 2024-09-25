@@ -5,10 +5,6 @@ import { Injectable } from '@angular/core';
 })
 export class ToDoService {
 
-  constructor() {
-
-  }
-
   getTodos() {
     return JSON.parse(localStorage.getItem('todos') ?? '[]');
   }
