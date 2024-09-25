@@ -1,6 +1,12 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ITodo } from 'libs/to-do/feature/src/lib/add-todo/add-todo.component';
+
+interface Todo {
+  id?: number;
+  title: string;
+  description: string;
+  isCompleted?:  boolean;
+}
 
 @Component({
   selector: 'lib-to-do-ui',
@@ -10,10 +16,10 @@ import { ITodo } from 'libs/to-do/feature/src/lib/add-todo/add-todo.component';
   styleUrl: './to-do-ui.component.css',
 })
 export class ToDoUiComponent {
-  @Input() todoList:ITodo[] =  [];
-  @Output() deleteTodoEvent = new EventEmitter<ITodo>();
+  @Input() todoList:Todo[] =  [];
+  @Output() deleteTodoEvent = new EventEmitter<Todo>();
   
-    deleteTodo(todo: ITodo) {
+    deleteTodo(todo: Todo) {
       this.deleteTodoEvent.emit(todo);
     }
 }
